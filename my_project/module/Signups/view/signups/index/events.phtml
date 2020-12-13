@@ -1,16 +1,16 @@
-<h1>Events for <?=$this->year ?></h1>
+<h1>Events in <?=$this->year ?></h1>
 
-<?php if(!empty($this->events)): ?>
+<?php if(!empty($this->events)):?>
 <table>
     <tr><th>Key</th><th>Name</th><th>Date</th></tr>
     <?php foreach($this->events as $event): ?>
     <tr>
-        <td><?=$event->event_key; ?></td>
-        <td><?=$event->event_name; ?></td>
-        <td><?=$event->event_date; ?></td>
+        <td><?=$event->event_key ?></td>
+        <td><?=$event->event_name ?></td>
+        <td><?=$event->event_date ?></td>
     </tr>
     <?php endforeach; ?>
 </table>
 <?php else: ?>
-Nothing to be found!!
+<p>No events found</p>
 <?php endif; ?>

@@ -13,10 +13,5 @@
  */
 
 return [
-    'service_manager' => [
-        'services' => [
-            'test_1' => 'B',
-            'test_2' => ['B'],
-        ],
-    ],
+    // ...
 ];

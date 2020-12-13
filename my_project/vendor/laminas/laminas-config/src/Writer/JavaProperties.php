@@ -10,13 +10,6 @@ namespace Laminas\Config\Writer;
 
 use Laminas\Config\Exception;
 
-use function get_class;
-use function gettype;
-use function is_object;
-use function is_scalar;
-use function is_string;
-use function sprintf;
-
 class JavaProperties extends AbstractWriter
 {
     const DELIMITER_DEFAULT = ':';

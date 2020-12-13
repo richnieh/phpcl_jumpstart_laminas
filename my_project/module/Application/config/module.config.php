@@ -10,14 +10,7 @@ declare(strict_types=1);
 
 namespace Application;
 
-use Application\Controller\MyCalendarController;
-use Application\Controller\MyCalendarControllerFactory;
-use Application\Factory\MyEventsModelFactory;
-use Application\Models\MyEventsModel;
-use Application\Service\MyCalendar;
-use Laminas\Form\Element\Email;
-use Laminas\Form\Element\Password;
-use Laminas\Form\Element\Submit;
+use Application\Controller\ListControllerFactory;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -25,6 +18,28 @@ use Laminas\ServiceManager\Factory\InvokableFactory;
 return [
     'router' => [
         'routes' => [
+            'application-list' => [
+                'type'    => Segment::class,
+                'options' => [
+                    // add additional params to "route" key if needed
+                    'route'    => '/application-list[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\ListController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'application-calendar' => [
+                'type'    => Segment::class,
+                'options' => [
+                    // add additional params to "route" key if needed
+                    'route'    => '/application-calendar[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\CalendarController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'home' => [
                 'type'    => Literal::class,
                 'options' => [
@@ -38,19 +53,9 @@ return [
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/application[/:action][/:name]',
+                    'route'    => '/application[/:action]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
-            'application-calendar' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'     => '/application-calendar[/:action]',
-                    'defaults'  => [
-                        'controller' => MyCalendarController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -59,14 +64,24 @@ return [
     ],
     'controllers' => [
         'factories' => [
+            Controller\ListController::class => ListControllerFactory::class,
+            Controller\CalendarController::class => Controller\CalendarControllerFactory::class,
             Controller\IndexController::class => InvokableFactory::class,
-            MyCalendarController::class => MyCalendarControllerFactory::class,
         ],
     ],
     'service_manager' => [
         'factories' => [
-            MyCalendar::class => InvokableFactory::class,
-            MyEventsModel::class => MyEventsModelFactory::class,
+            Services\Calendar::class => InvokableFactory::class,
+            Services\Adapter::class => Services\AdapterFactory::class,
+            Models\EventsModel::class => Factories\EventsModelFactory::class,
+        ],
+        'services' => [
+            'http-status-codes' => [
+                '1xx' => 'The request was received, continuing process',
+                '2xx' => 'The request was successfully received, understood and accepted',
+                '3xx' => 'Further action needs to be taken in order to complete the request',
+                '4xx' => 'The request contains bad syntax or cannot be fulfilled',
+            ],
         ],
     ],
     'view_manager' => [

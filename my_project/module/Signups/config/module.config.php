@@ -1,12 +1,9 @@
 <?php
 declare(strict_types=1);
 namespace Signups;
-use Application\Service\AdapterFactory;
+use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
-use Signups\Controller\IndexController;
-use Signups\Controller\IndexControllerFactory;
-
 return [
     'router' => [
         'routes' => [
@@ -25,12 +22,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            IndexController::class => IndexControllerFactory::class,
-        ],
-    ],
-    'service_manager' => [
-        'factories' => [
-            'adapter' => AdapterFactory::class,
+            Controller\IndexController::class => Controller\IndexControllerFactory::class,
         ],
     ],
     'view_manager' => [

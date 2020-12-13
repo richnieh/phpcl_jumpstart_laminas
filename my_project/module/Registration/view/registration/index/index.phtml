@@ -1,2 +1,5 @@
-<h1>Registration View</h1>
-IndexController
+<h1>Registration Form</h1>
+<?php $this->regFormFromConfig->prepare(); ?>
+<?= $this->form()->openTag($this->regFormFromConfig); ?>
+<?= $this->formCollection($this->regFormFromConfig); ?>
+<?= $this->form()->closeTag(); ?>

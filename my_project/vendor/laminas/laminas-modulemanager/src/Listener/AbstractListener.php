@@ -8,11 +8,6 @@
 
 namespace Laminas\ModuleManager\Listener;
 
-use Brick\VarExporter\ExportException;
-use Brick\VarExporter\VarExporter;
-use Laminas\ModuleManager\Listener\Exception\ConfigCannotBeCachedException;
-use Webimpress\SafeWriter\FileWriter;
-
 /**
  * Abstract listener
  */
@@ -65,16 +60,17 @@ abstract class AbstractListener
      */
     protected function writeArrayToFile($filePath, $array)
     {
-        try {
-            $content = "<?php\n" . VarExporter::export(
-                $array,
-                VarExporter::ADD_RETURN | VarExporter::CLOSURE_SNAPSHOT_USES
-            );
-        } catch (ExportException $e) {
-            throw ConfigCannotBeCachedException::fromExporterException($e);
-        }
+        // Write cache file to temporary file first and then rename it.
+        // We don't want cache file to be read when it is not written completely.
+        // include/require functions require additional lock, see:
+        // https://bugs.php.net/bug.php?id=52895
+        $tmp = tempnam(sys_get_temp_dir(), md5($filePath));
 
-        FileWriter::writeFile($filePath, $content);
+        $content = "<?php\nreturn " . var_export($array, true) . ';';
+        file_put_contents($tmp, $content);
+        chmod($tmp, 0666 & ~umask());
+
+        rename($tmp, $filePath);
 
         return $this;
     }

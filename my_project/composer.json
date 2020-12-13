@@ -16,18 +16,20 @@
         "laminas/laminas-mvc": "^3.1.1",
         "phpcl/laminas-tools": "^1.0",
         "laminas/laminas-db": "^2.11",
+        "laminas/laminas-form": "^2.15",
         "laminas/laminas-filter": "^2.9",
         "laminas/laminas-validator": "^2.13",
-        "laminas/laminas-form": "^2.15"
+        "laminas/laminas-i18n": "^2.11",
+        "laminas/laminas-code": "^3.4",
+        "doctrine/common": "^3.0"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Test\\": "module/Test/src/",
             "Signups\\": "module/Signups/src/",
             "Hotels\\": "module/Hotels/src/",
-            "Registration\\": "module/Registration/src/",
-            "Login\\": "module/Login/src/"
+            "Login\\": "module/Login/src/",
+            "Registration\\": "module/Registration/src/"
         }
     },
     "autoload-dev": {

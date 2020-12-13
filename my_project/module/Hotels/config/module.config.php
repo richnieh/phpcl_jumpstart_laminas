@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 namespace Hotels;
-use Hotels\Models\HotelsModel;
-use Hotels\Models\HotelsModelFactory;
-use Hotels\Service\AdapterFactory;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -25,13 +22,12 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => Controller\IndexControllerFactory::class,
+            Controller\IndexController::class => InvokableFactory::class,
         ],
     ],
     'service_manager' => [
         'factories' => [
-            'adapter' => AdapterFactory::class,
-            HotelsModel::class => HotelsModelFactory::class,
+            Service\Adapter::class => Service\AdapterFactory::class,
         ],
     ],
     'view_manager' => [

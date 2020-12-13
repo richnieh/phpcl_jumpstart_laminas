@@ -9,17 +9,17 @@ class FormFromClass extends Form
      * @param string $name == name of the form
      * @param array $opts == form options
      */
-    public function __construct($name, $opts = [])
+    public function __construct($name = null, $opts = [])
     {
         parent::__construct($name);
         $email = new Element\Email('email');
-        $email->setLabel('Email')
+        $email->setLabel($name)
               ->setAttributes(['size' => 40,
                     'placeholder' => 'Use your email address as a login name']);
-        $pwd = new Element\Password('password');
+        $pwd = new Element\Password();
         $pwd->setLabel('Password')
             ->setAttributes(['size' => 20]);
-        $submit = new Element\Submit('submit');
+        $submit = new Element\Submit();
         $submit->setValue('Login');
         $this->add($email)
              ->add($pwd)

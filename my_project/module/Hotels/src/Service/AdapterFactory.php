@@ -1,8 +1,9 @@
 <?php
 namespace Hotels\Service;
 use Interop\Container\ContainerInterface;
-use Laminas\Db\Adapter\Adapter;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Laminas\Db\Adapter\Adapter;
+
 class AdapterFactory implements FactoryInterface
 {
     /**
@@ -13,6 +14,6 @@ class AdapterFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new Adapter($container->get('local-db-adapter'));
+        return new Adapter($container->get("local-db-config"));
     }
 }

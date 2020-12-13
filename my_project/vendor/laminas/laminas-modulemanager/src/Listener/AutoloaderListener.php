@@ -12,8 +12,6 @@ use Laminas\Loader\AutoloaderFactory;
 use Laminas\ModuleManager\Feature\AutoloaderProviderInterface;
 use Laminas\ModuleManager\ModuleEvent;
 
-use function method_exists;
-
 /**
  * Autoloader listener
  */

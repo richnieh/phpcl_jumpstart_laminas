@@ -1,20 +1,22 @@
 <?php
-declare(strict_types=1);
 namespace Login\Controller;
-
-use Login\Forms\MyFormFromAnno;
-use Login\Forms\FormFromClass;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 
-class IndexControllerFactory extends FactoryInterface
+class IndexControllerFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container, $requestedNames, array $options = NULL)
+    /**
+     * @param ContainerInterface $container
+     * @param string $requestedName
+     * @param null|array $options
+     * @return IndexController
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         return new IndexController(
-            //$container->get(MyFormFromAnno::class),
-            $container->get(FormFromClass::class),
-            //$container->get('FormFromConfig')
+            $container->get(\Login\Forms\FormFromConfig::class),
+            $container->get(\Login\Forms\FormFromAnno::class),
+            $container->get(\Login\Forms\FormFromClass::class)
         );
     }
 }

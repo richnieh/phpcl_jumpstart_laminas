@@ -17,6 +17,17 @@ use Laminas\ServiceManager\Factory\InvokableFactory;
 return [
     'router' => [
         'routes' => [
+            'application-calendar' => [
+                'type'    => Segment::class,
+                'options' => [
+                    // add additional params to "route" key if needed
+                    'route'    => '/application-calendar[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\CalendarController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'home' => [
                 'type'    => Literal::class,
                 'options' => [
@@ -30,7 +41,7 @@ return [
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/application[/:action][/:name]',
+                    'route'    => '/application[/:action]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -41,7 +52,13 @@ return [
     ],
     'controllers' => [
         'factories' => [
+            Controller\CalendarController::class => Controller\CalendarControllerFactory::class,
             Controller\IndexController::class => InvokableFactory::class,
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            Services\Calendar::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

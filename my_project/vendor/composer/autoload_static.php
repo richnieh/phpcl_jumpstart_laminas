@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
+class ComposerStaticInit7a0b282146b7bbb2b961d000171c6d9d
 {
     public static $files = array (
         '7e9bd612cc444b3eed788ebbe46263a0' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/autoload.php',
@@ -12,14 +12,6 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
     );
 
     public static $prefixLengthsPsr4 = array (
-        'W' => 
-        array (
-            'Webimpress\\SafeWriter\\' => 22,
-        ),
-        'T' => 
-        array (
-            'Test\\' => 5,
-        ),
         'S' => 
         array (
             'Signups\\' => 8,
@@ -31,8 +23,6 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
         'P' => 
         array (
             'Psr\\Container\\' => 14,
-            'Phpcl\\LaminasTools\\' => 19,
-            'PhpParser\\' => 10,
         ),
         'L' => 
         array (
@@ -49,6 +39,7 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
             'Laminas\\Loader\\' => 15,
             'Laminas\\Json\\' => 13,
             'Laminas\\InputFilter\\' => 20,
+            'Laminas\\I18n\\' => 13,
             'Laminas\\Hydrator\\' => 17,
             'Laminas\\Http\\' => 13,
             'Laminas\\Form\\' => 13,
@@ -59,6 +50,7 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
             'Laminas\\Db\\' => 11,
             'Laminas\\Config\\' => 15,
             'Laminas\\ComponentInstaller\\' => 27,
+            'Laminas\\Code\\' => 13,
         ),
         'I' => 
         array (
@@ -68,9 +60,16 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
         array (
             'Hotels\\' => 7,
         ),
-        'B' => 
+        'D' => 
         array (
-            'Brick\\VarExporter\\' => 18,
+            'Doctrine\\Persistence\\' => 21,
+            'Doctrine\\Inflector\\' => 19,
+            'Doctrine\\Common\\Lexer\\' => 22,
+            'Doctrine\\Common\\Inflector\\' => 26,
+            'Doctrine\\Common\\Collections\\' => 28,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+            'Doctrine\\Common\\' => 16,
         ),
         'A' => 
         array (
@@ -80,14 +79,6 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
     );
 
     public static $prefixDirsPsr4 = array (
-        'Webimpress\\SafeWriter\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webimpress/safe-writer/src',
-        ),
-        'Test\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/module/Test/src',
-        ),
         'Signups\\' => 
         array (
             0 => __DIR__ . '/../..' . '/module/Signups/src',
@@ -99,14 +90,6 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Phpcl\\LaminasTools\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpcl/laminas-tools/src',
-        ),
-        'PhpParser\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
         'Login\\' => 
         array (
@@ -160,6 +143,10 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-inputfilter/src',
         ),
+        'Laminas\\I18n\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-i18n/src',
+        ),
         'Laminas\\Hydrator\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-hydrator/src',
@@ -200,6 +187,10 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-component-installer/src',
         ),
+        'Laminas\\Code\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -208,9 +199,40 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
         array (
             0 => __DIR__ . '/../..' . '/module/Hotels/src',
         ),
-        'Brick\\VarExporter\\' => 
+        'Doctrine\\Persistence\\' => 
         array (
-            0 => __DIR__ . '/..' . '/brick/varexporter/src',
+            0 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Persistence',
+        ),
+        'Doctrine\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
+        ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
+        'Doctrine\\Common\\Collections\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
+        ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+            2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
         'Application\\' => 
         array (
@@ -225,8 +247,8 @@ class ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7660cec912b601b40e86ac4ee6d073ad::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7a0b282146b7bbb2b961d000171c6d9d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7a0b282146b7bbb2b961d000171c6d9d::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

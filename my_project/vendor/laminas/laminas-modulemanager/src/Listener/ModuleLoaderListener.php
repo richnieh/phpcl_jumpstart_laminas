@@ -13,8 +13,6 @@ use Laminas\EventManager\ListenerAggregateInterface;
 use Laminas\Loader\ModuleAutoloader;
 use Laminas\ModuleManager\ModuleEvent;
 
-use function file_exists;
-
 /**
  * Module loader listener
  */

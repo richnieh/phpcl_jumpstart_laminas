@@ -1,7 +1,6 @@
 <?php
 namespace Signups\Controller;
 
-use Application\Models\MyEventsModel;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 
@@ -15,6 +14,6 @@ class IndexControllerFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new IndexController($container->get(MyEventsModel::class));
+        return new IndexController($container->get('Application\Models\EventsModel'));
     }
 }

@@ -12,19 +12,17 @@ namespace Application\Controller;
 
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\View\Model\ViewModel;
-use PhpParser\Node\Stmt\Return_;
 
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $name = $this->params()->fromRoute('name','DEFAULT');
+        $name = $this->params()->fromQuery('name', 'Richard');
         return new ViewModel(['name'=>$name]);
     }
-
     public function listAction()
     {
-        $name = $this->params()->fromQuery('name','DEFAULT');
+        $name = $this->params()->fromQuery('name','Nieh');
         return new ViewModel(['name'=>$name]);
     }
 }

@@ -1,17 +1,15 @@
-<h1>Hotels list</h1>
-
+<h1>Hotels List in <?= $this->country ?></h1>
 <?php if(!empty($this->hotels)): ?>
 <table>
-    <tr><th>Hotel</th><th>Address</th><th>Postal Code</th><th>country</th></tr>
+    <tr><th>Hotel Name</th><th>Street Address</th><th>City</th></tr>
     <?php foreach($this->hotels as $hotel): ?>
     <tr>
-        <td><?=$hotel->hotelName ?></td>
-        <td><?=$hotel->streetAddress ?></td>
-        <td><?=$hotel->postalCode ?></td>
-        <td><?=$hotel->country ?></td>
+        <td><?=$hotel->hotelName; ?></td>
+        <td><?=$hotel->streetAddress; ?></td>
+        <td><?=$hotel->city; ?></td>
     </tr>
     <?php endforeach; ?>
 </table>
 <?php else: ?>
-No hotel found.
-<?php endif;?>
+No hotel found
+<?php endif; ?>

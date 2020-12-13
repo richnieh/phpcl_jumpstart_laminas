@@ -1,0 +1,15 @@
+<h1>Hotel listing for <?= $this->hotelName ?></h1>
+<?php if(!empty($this->hotels)): ?>
+    <table>
+        <tr><th>Street Address</th><th>City</th><th>Country</th></tr>
+        <?php foreach($this->hotels as $hotel): ?>
+            <tr>
+                <td><?= $hotel->streetName ?></td>
+                <td><?= $hotel->city ;?></td>
+                <td><?= $hotel->country ;?></td>
+            </tr>
+        <?php endforeach;?>
+    </table>
+<?php else: ?>
+<p>No hotel found</p>
+<?php endif; ?>
